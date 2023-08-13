@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const Video = require('../models/Video');
-const VideoController = require('../controllers/videoController');
+const videoController = require('../controllers/videoController');
 
-router.get('/videos', videoController.getVideoList);
-router.get('/videos/:videoId', videoController.getVideoDetail);
+router.get('/', videoController.getVideoList);
+router.get('/:videoId', videoController.getVideoDetail);
 
 module.exports = router;

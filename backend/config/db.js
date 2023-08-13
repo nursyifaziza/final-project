@@ -1,17 +1,14 @@
 const mongoose = require('mongoose')
 
-const MONGODB_URI = 'mongodb://localhost:27017/live-shopping-app';
+const MONGODB_URI = 'mongodb://127.0.0.1:27017';
 
-mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-});
+const connectDB = async () => {
+    try {
+        await mongoose.connect(MONGODB_URI, {dbName: 'live-shoping-app'});
+        console.log('Connected to MongoDB');
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
+    }
+}
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-    console.log('Connected to MongoDB');
-});
-
-module.exports = db;
+module.exports = connectDB;
