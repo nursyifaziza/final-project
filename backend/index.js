@@ -10,7 +10,7 @@ const connectDB = require('./config/db');
 
 connectDB();
 
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3000'}));
 app.use('/api/videos', videoRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/comments', commentRoutes);
