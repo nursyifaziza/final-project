@@ -18,23 +18,23 @@ const seedDatabase = async() => {
         const videos = await Video.create([
             {
                 title: 'THENBLANK New Collection: 공백 The Pals',
-                url: 'https://www.youtube.com/watch?v=RwfGTZeno8E',
+                url: 'https://www.youtube.com/embed/RwfGTZeno8E',
                 thumbnail: 'https://img.youtube.com/vi/RwfGTZeno8E/maxresdefault.jpg'
             }, {
                 title: 'Jeans Series - Noona Skirt by Rokgaliya',
-                url: 'https://www.youtube.com/watch?v=VGjHvOxglPE',
+                url: 'https://www.youtube.com/embed/VGjHvOxglPE',
                 thumbnail: 'https://img.youtube.com/vi/VGjHvOxglPE/maxresdefault.jpg'
             }, {
                 title: 'REVIEW PARFUM KITSCHY! wangi mahal + tahan lama tapi affordable?!',
-                url: 'https://www.youtube.com/watch?v=8o7O6pMV7jc',
+                url: 'https://www.youtube.com/embed/8o7O6pMV7jc',
                 thumbnail: 'https://img.youtube.com/vi/8o7O6pMV7jc/maxresdefault.jpg'
             }, {
                 title: 'Jelasin wangi parfum SAFF & Co pakai bahasa sehari-hari.',
-                url: 'https://www.youtube.com/watch?v=S2SX9KzT1Is',
+                url: 'https://www.youtube.com/embed/S2SX9KzT1Is',
                 thumbnail: 'https://img.youtube.com/vi/S2SX9KzT1Is/maxresdefault.jpg'
             }, {
                 title: 'Cobain Somethinc Calm Down (acne prone & oily combination skin)',
-                url: 'https://www.youtube.com/watch?v=Ix06Jo56Dfg',
+                url: 'https://www.youtube.com/embed/Ix06Jo56Dfg',
                 thumbnail: 'https://img.youtube.com/vi/Ix06Jo56Dfg/maxresdefault.jpg'
             }
         ]);
