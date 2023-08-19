@@ -28,8 +28,9 @@ exports.submitComment = async(req, res) => {
         //Save the new comment
         await newComment.save();
 
-        res.json({success: true});
+        res.status(201).json({ success: true });
     } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
+        console.error('Error creating comment:', error);
+        res.status(500).json({ error: 'Failed to create comment' });
     }
 }
