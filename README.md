@@ -1,7 +1,7 @@
 # Final Project
 
 
-**4️⃣ How to Run in Local**
+**1️⃣ How to Run in Local**
 ----
 * Clone this repository
 ```
@@ -16,7 +16,7 @@ npm install
 npm start
 ```
 
-**1️⃣ Database Structure**
+**2️⃣ Database Structure**
 ----
 * Video
 ```
@@ -47,7 +47,7 @@ npm start
 }
 ```
 
-**2️⃣ API Structure**
+**3️⃣ API Structure**
 ----
 | HTTP Verb    | Endpoint           | Actions                          |
 | :---         | :---               | :---                             |
@@ -57,7 +57,7 @@ npm start
 | GET          | /api/comments/:id  | Get all comments by videoId      |
 | POST         | /api/comments/:id  | Post a comment on a video        |
 
-**3️⃣ List of API Contracts**
+**4️⃣ List of API Contracts**
 ----
 **GET /videos**
 ----
