@@ -19,18 +19,16 @@ exports.getCommentList = async(req, res) => {
 
 exports.submitComment = async(req, res) => {
     try {
-        const {username, comment} = req.body;
-        const videoId = req.params.videoId;
+        const newComment = new Comment({username: req.body.username, text: req.body.text, videoId: req.body.videoId});
 
-        //Create a new comment
-        const newComment = new Comment({username, text: comment, videoId});
-
-        //Save the new comment
         await newComment.save();
-
-        res.status(201).json({ success: true });
+        res
+            .status(201)
+            .json({success: true});
     } catch (error) {
         console.error('Error creating comment:', error);
-        res.status(500).json({ error: 'Failed to create comment' });
+        res
+            .status(500)
+            .json({error: 'Failed to create comment'});
     }
 }
