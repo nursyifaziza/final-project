@@ -19,7 +19,7 @@
     display: block;
     text-align: left;
     text-decoration: none;
-    color: lightgreen;
+    color: beige;
     font-weight: 800;
 }
 
@@ -34,4 +34,18 @@
 .video-thumbnail p {
     margin-top: 5px;
     font-weight: bold;
+}
+
+.video-detail-container {
+    background-color: black;
+    color: white;
+    padding: 36px;
+}
+
+.comments-section {
+    margin-top: 40px;
+}
+
+.product-list {
+    margin-top: 40px;
 }
