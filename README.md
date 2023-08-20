@@ -7,22 +7,39 @@
 ```
 git clone https://github.com/nursyifaziza/final-project
 ```
-* Install the dependencies
+* In root directory, install dependencies
 ```
 npm install
 ```
-* Run the server
+* In each frontend and backend directory, install dependencies too
+```
+cd backend
+npm install
+```
+```
+cd frontend
+npm install
+```
+* Change directory to backend, then run seeder and run the server
+```
+node seeds/seed.js
+```
+```
+node index.js
+```
+* Lastly, open new terminal, change directory to frontend, and run it
 ```
 npm start
 ```
+
 
 **2️⃣ Database Structure**
 ----
 * Video
 ```
 {
-  link: String,
   title: String,
+  url: String,
   thumbnail: String
 }
 ```
@@ -30,20 +47,20 @@ npm start
 * Product
 ```
 {
-    videoId: {type: ObjectId, ref: 'Video'},
-    link: String,
     title: String,
-    price: Number
+    link: String,
+    price: Number,
+    videoId: {type: ObjectId, ref: 'Video'},
 }
 ```
 
 * Comment
 ```
 {
-    videoId: {type: ObjectId, ref: 'Video'},
     username: {type: String, required: true},
     text: {type: String, required: true},
-    timestamp: {type: Date, default: Date.now}
+    timestamp: {type: Date, default: Date.now},
+    videoId: {type: ObjectId, ref: 'Video'},
 }
 ```
 
@@ -53,7 +70,7 @@ npm start
 | :---         | :---               | :---                             |
 | GET          | /api/videos        | Get all videos                   |
 | GET          | /api/videos/:id    | Get a video detail by videoId    |
-| GET          | /api/products/:id    | Get all products by videoId      |
+| GET          | /api/products/:id  | Get all products by videoId      |
 | GET          | /api/comments/:id  | Get all comments by videoId      |
 | POST         | /api/comments/:id  | Post a comment on a video        |
 
@@ -81,12 +98,15 @@ npm start
    {<video_object>}
 ]
 ```
+* **Error Response:**  
+  * **Code:** 500  
+  **Content:** `{ "message" : "Internal server error" }`
 
 **GET /video/:id**
 ----
   Returns the specified video.
 * **URL Params**  
-  Required: id=[string]
+  id=[string]
 * **Data Params**  
   None
 * **Headers**  
@@ -96,7 +116,9 @@ npm start
   **Content:**  `{ <video_object> }` 
 * **Error Response:**  
   * **Code:** 404  
-  **Content:** `{ "message" : "Video doesn't exist" }`
+  **Content:** `{ "message" : "Video not exist" }`
+  * **Code:** 500  
+  **Content:** `{ "message" : "Internal server error" }`
 
 **GET /products/:id**
 ----
@@ -108,7 +130,7 @@ npm start
 * **Headers**  
   Content-Type: application/json  
 * **Success Response:**  
-* **Code:** 200  
+* **Code:** 201  
   **Content:**  
 ```
 [
@@ -120,6 +142,8 @@ npm start
 * **Error Response:**  
   * **Code:** 404  
   **Content:** `{ "message" : "Currently, there are no products associated with this video" }`
+  * **Code:** 500  
+  **Content:** `{ "message" : "Internal server error" }`
 
 **GET /comments/:id**
 ----
@@ -142,7 +166,9 @@ npm start
 ```
 * **Error Response:**  
   * **Code:** 404  
-  **Content:** `{ "message" : "There are no comments" }`
+  **Content:** `{ "message" : "Comments are empty" }`
+  * **Code:** 500  
+  **Content:** `{ "message" : "Internal server error" }`
 
 **POST /comments/:id**
 ----
@@ -159,8 +185,10 @@ npm start
   }
 ```
 * **Success Response:**  
-* **Code:** 200  
+* **Code:** 201  
   **Content:**  `{ <comment_object> }`
 * **Error Response:**  
   * **Code:** 400 
-  **Content:** `{ "message" : "Comment is invalid" }`
+  **Content:** `{ "message" : "Error creating comment: ", error }`
+  * **Code:** 500  
+  **Content:** `{ "message" : "Failed to create comment" }`
