@@ -1,6 +1,11 @@
+@import url( 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700;900&display=swap');
+
 .home-container {
     text-align: center;
-    padding: 20px;
+    padding: 36px;
+    background-color: black;
+    color: white;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 .video-thumbnails {
@@ -12,14 +17,14 @@
 
 .video-thumbnail {
     display: block;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
-    color: #333;
+    color: lightgreen;
+    font-weight: 800;
 }
 
 .video-thumbnail img {
     width: 100%;
-    max-height: 200px;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
